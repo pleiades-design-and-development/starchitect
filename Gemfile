@@ -10,6 +10,7 @@ gem 'annotate'
 gem 'wicked'
 gem 'rspec'
 gem 'merit'
+gem 'redcarpet'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
