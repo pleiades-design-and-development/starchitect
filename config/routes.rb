@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :submissions
   resources :posts
 
   resources :users
