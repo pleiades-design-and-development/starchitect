@@ -8,11 +8,9 @@ end
 gem 'haml'
 gem 'annotate'
 gem 'wicked'
-gem 'rspec'
 gem 'merit'
 gem 'redcarpet'
 gem 'active_model_serializers'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -38,6 +36,13 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+
 end
 
 group :development do
