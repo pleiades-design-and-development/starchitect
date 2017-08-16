@@ -21,4 +21,5 @@ class ApplicationController < ActionController::API
     end
   end
   include ActionController::Serialization
+
 end
