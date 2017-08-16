@@ -1,3 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :callsign, :firstname, :lastname, :email, :level, :rank, :admin, :sash_id, :password_digest
+  attributes :callsign, :firstname, :lastname, :email, :password_digest
+  # attributes :id, :callsign, :firstname, :lastname, :email, :level, :rank, :admin, :sash_id, :password_digest
+
 end
