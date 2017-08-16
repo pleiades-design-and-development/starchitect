@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :callsign, :firstname, :lastname, :email, :password_digest
+  attributes :callsign, :firstname, :lastname, :email, :password
   # def password_digest
   #   binding.pry
   # end
