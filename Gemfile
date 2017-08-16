@@ -11,7 +11,7 @@ gem 'wicked'
 gem 'merit'
 gem 'redcarpet'
 gem 'active_model_serializers'
-gem 'pry'
+gem 'pry-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
