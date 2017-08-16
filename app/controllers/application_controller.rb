@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  after_filter :cors_headers
+  after_action :cors_headers
 
 def cors_headers
   headers['Access-Control-Allow-Origin'] = '*'
