@@ -31,3 +31,10 @@ end
 # }].each do |attrs|
 #   Merit::Badge.create! attrs
 # end
+
+Merit::Badge.create!(
+  id: 1,
+  name: "new-cadet",
+  description: "Joined the Starchitects!",
+  custom_fields: {  }
+)
