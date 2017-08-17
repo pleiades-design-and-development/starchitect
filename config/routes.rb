@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'session/create'
+
+  get 'session/destroy'
+
 scope '/api' do
   scope '/v1' do
     scope '/users' do
