@@ -8,7 +8,7 @@ end
 gem 'haml'
 gem 'annotate'
 gem 'wicked'
-gem 'merit', github: "tamycova/merit", branch: 'f657596409d98fc7c8e3274b213b86cc47d87495'
+gem 'merit', github: "joshuastronomy/merit"
 gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
 gem 'pry-rails'
