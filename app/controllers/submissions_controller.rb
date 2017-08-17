@@ -18,7 +18,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
 
     if @submission.save
-      render json: @submission, status: :created, location: @submission
+      render json: @submission, status: :created
     else
       render json: @submission.errors, status: :unprocessable_entity
     end
