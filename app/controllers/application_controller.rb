@@ -15,11 +15,12 @@ class ApplicationController < ActionController::API
   end
 
   def validate_params
-    user = Validate::User.new(params.to_hash)
+    user = Validate::User.new(user_params)
     if !user.valid?
       render json: { error: user.errors } and return
     end
   end
+  
     #permit OPTIONS, possibly unnecessary with rack-cors
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'

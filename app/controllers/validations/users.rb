@@ -22,8 +22,9 @@ module Validate
       @password => params[:password],
       @password_confirmation => params[:password_confirmation]
       }
-
-      ActionController::Parameters.new(params.to_hash).require(:user).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
+    def user_params
+      ActionController::Parameters.new(params).require(:user).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
+    end
 
     end
   end
