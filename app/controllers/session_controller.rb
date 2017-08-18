@@ -1,24 +1,32 @@
 class SessionController < ApplicationController
-  def new
-  end
 
-  def create
-      user = User.find_by_api_token(params[:api_token])
-      # If the user exists AND the password entered is correct.
-      if user && user.authenticate(params[:password])
-        # Save the user id inside the browser cookie. This is how we keep the user
-        # logged in when they navigate around our website.
-        render json: user, serializer: LoginSerializer
-        redirect_to '/'
+    skip_before_action :require_login, only: [:create], raise: false
+
+    def create
+      if user = User.valid_login?(params[:callsign], params[:password])
+        allow_token_to_be_used_only_once_for(user)
+        send_auth_token_for_valid_login_of(user)
       else
-      # If user's login doesn't work, send them back to the login form.
-        redirect_to '/login'
+        render_unauthorized("Error with your login or password")
       end
-  end
-
-    def destroy
-      session[:user_id] = nil
-      redirect_to '/'
     end
 
+    def destroy
+      logout
+      head :ok
+    end
+
+    private
+
+    def send_auth_token_for_valid_login_of(user)
+      render json: { api_token: user.api_token }
+    end
+
+    def allow_token_to_be_used_only_once_for(user)
+      user.regenerate_token
+    end
+
+    def logout
+      current_user.invalidate_token
+    end
 end

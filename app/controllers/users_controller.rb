@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: :destroy
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :validate_params, only: [:create, :update]
+
 
   def index
     @users = User.all
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
 
-      session[:user_id] = @user.id
+      @current_user = @user
 
       render json: @user, status: :created
 
