@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(ser_params)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :password_confirmation)
   end
+
 
   def set_user
     @user = User.find(params[:id])

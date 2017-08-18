@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
+
   before_action :cors_preflight_check
   after_action :cors_set_access_control_headers
 

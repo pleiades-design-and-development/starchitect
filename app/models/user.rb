@@ -2,9 +2,14 @@ class User < ApplicationRecord
   has_merit
 
   has_secure_password
+  
+  validates :password,
+    presence: { on: :create },
+    length: { minimum: 8, allow_blank: true }
+
   has_secure_token :api_token
 
-  validates :password, length: { in: 8..16 } 
+
 
   def invalidate_token
     self.update_columns(api_token: nil)
