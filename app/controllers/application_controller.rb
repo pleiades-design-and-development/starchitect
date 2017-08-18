@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
   before_action :cors_preflight_check
   after_action :cors_set_access_control_headers
+
+
     #current user
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::API
       render json: { error: user.errors } and return
     end
   end
-  
+
     #permit OPTIONS, possibly unnecessary with rack-cors
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'

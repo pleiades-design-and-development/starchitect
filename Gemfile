@@ -13,8 +13,6 @@ gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
 gem 'pry-rails'
 gem 'faker'
-gem 'jwt'
-gem 'simple_command'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'

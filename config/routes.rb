@@ -15,7 +15,7 @@ scope '/api' do
     scope 'submissions' do
       get '/' => 'submissions#index'
       post '/' => 'submissions#create'
-      put '/:id/edit' => 'submissions#update' 
+      put '/:id/edit' => 'submissions#update'
     end
   end
 end
