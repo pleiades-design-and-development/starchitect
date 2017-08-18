@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :callsign, :firstname, :lastname, :email, :password, :password_confirmation
+  attributes :callsign, :firstname, :lastname, :email
   has_many :badges
 
 end
