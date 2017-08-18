@@ -2,7 +2,7 @@ module Validate
   class User
     include ActiveModel::Validations
 
-    attr_accessor :callsign, :firstname, :lastname, :email
+    attr_accessor :callsign, :firstname, :lastname, :email, :password, :password_confirmation
 
     validates :callsign, presence: true, length: { in: 3..16 }
     validates :firstname, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z]+\z/,
@@ -18,12 +18,12 @@ module Validate
       @callsign => params[:callsign],
       @firstname => params[:firstname],
       @lastname => params[:lastname],
-      @email => params[:email]
-      # @password => params[:password],
-      # @password_confirmation => params[:password_confirmation]
+      @email => params[:email],
+      @password => params[:password],
+      @password_confirmation => params[:password_confirmation]
       }
     def user_params
-      ActionController::Parameters.new(params).require(:user).permit(:callsign, :firstname, :lastname, :email)
+      ActionController::Parameters.new(params).require(:user).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
     end
 
     end
