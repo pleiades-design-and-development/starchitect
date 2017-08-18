@@ -14,14 +14,17 @@ module Validate
     validates :password_confirmation, presence: true
 
     def initialize(params={})
-      @callsign = params[:callsign]
-      @firstname = params[:firstname]
-      @lastname = params[:lastname]
-      @email = params[:email]
-      @password = params[:password]
-      @password_confirmation = params[:password_confirmation]
-
-      ActionController::Parameters.new(params).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
+      @user = {
+      @callsign => params[:callsign],
+      @firstname => params[:firstname],
+      @lastname => params[:lastname],
+      @email => params[:email],
+      @password => params[:password],
+      @password_confirmation => params[:password_confirmation]
+      }
+    def user_params
+      ActionController::Parameters.new(params).require(:user).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
+    end
 
     end
   end
