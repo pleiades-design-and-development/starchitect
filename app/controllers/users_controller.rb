@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :validate_params, only: [:create, :update]
 
-
   def index
     @users = User.all
     render json: @users
@@ -11,7 +10,6 @@ class UsersController < ApplicationController
   def show
     render json: @user
   end
-
 
   def create
     @user = User.new(user_params)
@@ -40,19 +38,7 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
-  rescue_from(ActionController::UnpermittedParameters) do |pme|
-    render json: { error:  { unknown_parameters: pme.params } },
-               status: :bad_request
-  end
-
   private
-
-      def validate_params
-        user = Validate::Location.new(params)
-        if !user.valid?
-          render json: { error: user.errors } and return
-        end
-      end
 
   def user_params
     params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :password_confirmation)

@@ -21,10 +21,8 @@ module Validate
       @password = params[:password]
       @password_confirmation = params[:password_confirmation]
 
+      ActionController::Parameters.new(params).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation).to_h
 
-
-      ActionController::Parameters.new(params).permit(:callsign, :firstname, :lastname, :email, :password, :password_confirmation)
     end
-
   end
 end
