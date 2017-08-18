@@ -10,8 +10,8 @@ module Validate
     validates :lastname, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z]+\z/,
     message: "No numbers, please!" }
     validates :email, presence: true
-    # validates :password, presence: true, confirmation: true
-    # validates :password_confirmation, presence: true
+    # validates :password, presence: true, confirmation: true, length: { in: 8..16 }
+    # validates :password_confirmation, presence: true, length: { in: 8..16 }
 
     def initialize(params={})
       @user = {
