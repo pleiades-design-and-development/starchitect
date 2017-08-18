@@ -5,25 +5,6 @@ class ApplicationController < ActionController::API
   after_action :cors_set_access_control_headers
 
 
-    #current user
-  # def current_user
-  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  # end
-
-    #validation params
-  ActionController::Parameters.action_on_unpermitted_parameters = :raise
-
-  rescue_from(ActionController::UnpermittedParameters) do |pme|
-    render json: { error:  { unknown_parameters: pme.params } },
-               status: :bad_request
-  end
-
-  def validate_params
-    user = Validate::User.new(user_params)
-    if !user.valid?
-      render json: { error: user.errors } and return
-    end
-  end
 
     #permit OPTIONS, possibly unnecessary with rack-cors
   def cors_set_access_control_headers
