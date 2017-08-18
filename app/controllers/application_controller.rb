@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
   end
 
   def validate_params
-    user = Validate::User.new(params)
+    user = Validate::User.new(params.to_hash)
     if !user.valid?
       render json: { error: user.errors } and return
     end
