@@ -9,6 +9,7 @@ scope '/api' do
     scope '/users' do
       get '/' => 'users#index'
       post '/' => 'users#create'
+      get '/:id' => 'users#show'
     end
     scope '/profile' do
       get '/' => 'profile#index'
