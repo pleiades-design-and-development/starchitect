@@ -8,8 +8,8 @@ scope '/api' do
   end
     scope '/users' do
       get '/' => 'users#index'
-      post '/' => 'users#create'
       get '/:id' => 'users#show'
+      post '/' => 'users#create'
     end
     scope '/profile' do
       get '/' => 'profile#index'
@@ -19,8 +19,15 @@ scope '/api' do
     end
     scope 'submissions' do
       get '/' => 'submissions#index'
+      get '/:id' => 'submissions#show'
       post '/' => 'submissions#create'
       put '/:id/edit' => 'submissions#update'
+    end
+    scope 'posts' do
+      get '/' => 'posts#index'
+      get '/:id' => 'posts#show'
+      post '/' => 'posts#create'
+      put '/:id/edit' => 'posts#update'
     end
   end
 end
