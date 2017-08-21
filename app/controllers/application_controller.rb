@@ -34,6 +34,10 @@ class ApplicationController < ActionController::API
     authenticate_token || render_unauthorized("Access denied")
   end
 
+  def logged_in?
+    current_user != nil
+  end
+
   def current_user
     @current_user ||= authenticate_token
   end
