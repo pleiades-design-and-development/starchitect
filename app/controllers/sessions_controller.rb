@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
     end
 
     def allow_token_to_be_used_only_once_for(user)
-      user.regenerate_token
+      user.regenerate_api_token
     end
 
     def logout
-      current_user.invalidate_token
+      current_user.invalidate_api_token
     end
 end
