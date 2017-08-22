@@ -1,5 +1,5 @@
 class LoginSerializer < ActiveModel::Serializer
 
-  attributes :callsign, :api_token
+  attributes :id, :callsign, :api_token
 
 end
