@@ -13,6 +13,8 @@ gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
 gem 'pry-rails'
 gem 'faker'
+gem 'public_activity'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -40,7 +42,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'

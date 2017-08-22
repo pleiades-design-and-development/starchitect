@@ -3,7 +3,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions
   def index
-    @submissions = Submission.all
+    @submissions = Submission.order('created_at DESC')
 
     render json: @submissions
   end
