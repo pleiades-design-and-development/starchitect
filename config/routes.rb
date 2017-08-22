@@ -29,17 +29,4 @@ scope '/api' do
     end
   end
 end
-
 end
-
-
-
-
-
-
-  # resources :submissions
-  # resources :posts
-  #
-  # resources :users
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
