@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+resources :activities
+
 scope '/api' do
   scope '/v1' do
     post   "/login" => "sessions#create"
