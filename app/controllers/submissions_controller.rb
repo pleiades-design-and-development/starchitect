@@ -46,6 +46,6 @@ class SubmissionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def submission_params
-      params.require(:submission).permit(:type, :object, :title, :body, :user_id)
+      params.permit(:type, :object, :title, :body, :user_id)
     end
 end
