@@ -4,7 +4,6 @@ scope '/api' do
   scope '/v1' do
     post   "/login" => "sessions#create"
     delete "/logout" => "sessions#destroy"
-  end
     scope '/users' do
       get '/' => 'users#index'
       get '/:id' => 'users#show'
@@ -31,6 +30,10 @@ scope '/api' do
   end
 end
 
+end
+
+
+
 
 
 
@@ -40,4 +43,3 @@ end
   # resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
