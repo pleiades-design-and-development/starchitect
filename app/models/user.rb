@@ -5,7 +5,11 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token :api_token
 
-  validates :password, length: { in: 8..16 }
+  validates :callsign, presence: true, uniqueness: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { in: 8..16 }
 
   def invalidate_token
     self.update_columns(api_token: nil)
