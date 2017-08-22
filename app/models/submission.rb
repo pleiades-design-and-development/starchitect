@@ -1,4 +1,6 @@
 class Submission < ApplicationRecord
-  belongs_to :user
+  include PublicActivity::Model
   tracked
+  belongs_to :user
+
 end
