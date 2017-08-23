@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 scope '/api' do
   scope '/v1' do
     resources :activities
-    post   "/login" => "sessions#create"
-    delete "/logout" => "sessions#destroy"
+    post   "/signup" =>  'users#create'
+    post   "/login" => 'sessions#create'
+    delete "/logout" => 'sessions#destroy'
     scope '/users' do
       get '/' => 'users#index'
       get '/:id' => 'users#show'
-      post '/' => 'users#create'
     end
     scope '/profile' do
       get '/' => 'profile#index'
