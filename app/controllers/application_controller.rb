@@ -41,9 +41,6 @@ class ApplicationController < ActionController::API
     @current_user ||= authenticate_token
   end
 
-  def track_activity(trackable, action = params[:action])
-    current_user.activities.create! action: action, trackable: trackable
-  end
 
   protected
 
@@ -59,5 +56,14 @@ class ApplicationController < ActionController::API
       User.find_by(api_token: token)
     end
   end
+
+  def track_activity(trackable, action = params[:action])
+    current_user.activities.create! action: action, trackable: trackable
+  end
+
+  # def act_params
+  #   params.permit(:id, :user_id, :action, :trackable)
+  # end
+
 
 end
