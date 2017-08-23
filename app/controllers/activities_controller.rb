@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
-    puts "whatup"
+    puts Activity.all
   end
 
   def create
