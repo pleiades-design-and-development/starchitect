@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.order('created_at desc')
+    @activities = Activity.all
+    puts "whatup"
   end
 
   def create
