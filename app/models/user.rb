@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_merit
   has_many :submissions
+  has_many :activities
 
   has_secure_password
   has_secure_token :api_token

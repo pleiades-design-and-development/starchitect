@@ -1,5 +1,4 @@
 class ActivitySerializer < ActiveModel::Serializer
-  attributes :id, :action, :trackable_type
+  attributes :id, :action, :trackable
   has_one :user
-  has_one :trackable
 end

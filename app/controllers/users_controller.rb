@@ -16,9 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-
       @current_user = @user
-
+      track_activity @user
       render json: @user, status: :created
 
     else
@@ -48,4 +47,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
 end

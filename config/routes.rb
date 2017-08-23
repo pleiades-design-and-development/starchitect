@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
 
-  resources :activities
+
 scope '/api' do
   scope '/v1' do
+    resources :activities
     post   "/login" => "sessions#create"
     delete "/logout" => "sessions#destroy"
     scope '/users' do

@@ -41,6 +41,10 @@ class ApplicationController < ActionController::API
     @current_user ||= authenticate_token
   end
 
+  def track_activity(trackable, action = params[:action])
+    current_user.activities.create! action: action, trackable: trackable
+  end
+
   protected
 
   def render_unauthorized(message)

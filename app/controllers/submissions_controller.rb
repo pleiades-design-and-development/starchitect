@@ -18,6 +18,8 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
 
     if @submission.save
+      track_activity @submission
+
       render json: @submission, status: :created
     else
       render json: @submission.errors, status: :unprocessable_entity
@@ -27,6 +29,8 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   def update
     if @submission.update(submission_params)
+      track_activity @submission
+
       render json: @submission
     else
       render json: @submission.errors, status: :unprocessable_entity
