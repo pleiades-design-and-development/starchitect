@@ -12,6 +12,6 @@ class ActivitiesController < ApplicationController
   private
 
   def act_params
-    params.permit(:id, :user_id, :action, :trackable)
+    params.permit(:id, :user_id, :action, :trackable, :trackable_type)
   end
 end
