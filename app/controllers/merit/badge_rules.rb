@@ -32,7 +32,7 @@ module Merit
         end
 
       grant_on 'submissions#create', badge: 'first-explore-submit' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count == 1 || !submission.user.badges.id == 4
+        submission.user.submissions.where(:submit_type => 'explore').count == 1 || !submission.user.badges.find(:id => 4)
         end
 
 
