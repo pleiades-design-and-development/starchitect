@@ -21,13 +21,9 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      # grant_on 'users#create', badge: 'new-cadet' do |user|
-      #   user.callsign?
-      # end
-      # If it creates user, grant badge
-      # Should be "current_user" after registration for badge to be granted.
-      # Find badge by badge_id, badge_id takes presidence over badge
       grant_on 'users#create', badge_id: 1, badge: 'new_cadet', to: :itself
+
+      grant_on 'submissions#create', badge_id: 2, badge: 'first_submit'
 
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|

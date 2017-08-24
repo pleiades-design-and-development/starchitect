@@ -39,6 +39,9 @@ class SubmissionsController < ApplicationController
 
   # DELETE /submissions/1
   def destroy
+    
+    track_activity @submission
+
     @submission.destroy
   end
 

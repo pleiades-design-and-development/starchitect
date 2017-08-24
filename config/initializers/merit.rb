@@ -32,9 +32,80 @@ end
 #   Merit::Badge.create! attrs
 # end
 
-Merit::Badge.create!(
-  id: 1,
+badge_id = 0
+[{
+  id: (badge_id = badge_id+1),
   name: "new-cadet",
   description: "Joined the Starchitects!",
   custom_fields: {  }
-)
+}, {
+  id: (badge_id = badge_id+1),
+  name: "first-submit",
+  description: "Submitted their first contribution the the Starchives.",
+  custom_fields: {  }
+}, {
+  id: (badge_id = badge_id+1),
+  name: "first-explore-submit",
+  description: "Submitted their first Explorer Mode contribution to the Starchives.",
+  custom_fields: {  }
+}, {
+  id: (badge_id = badge_id+1),
+  name: "first-create-submit",
+  description: "Submitted their first Creator Mode contribution to the Starchives.",
+  custom_fields: {  }
+}, {
+  id: (badge_id = badge_id+1),
+  name: "profile-complete",
+  description: "Completed their Starchitect profile.",
+  custom_fields: {  }
+}, {
+  id: (badge_id = badge_id+1),
+  name: "first-media-upload",
+  description: "Submitted their first contribution with a media upload to the Starchives.",
+  custom_fields: {  }
+}].each do |attrs|
+  Merit::Badge.create! attrs
+end
+
+
+# Merit::Badge.create!(
+#   id: 1,
+#   name: "new-cadet",
+#   description: "Joined the Starchitects!",
+#   custom_fields: {  }
+# )
+#
+# Merit::Badge.create!(
+#   id: 2,
+#   name: "first-submit",
+#   description: "Submitted their first contribution the the Starchives.",
+#   custom_fields: {  }
+# )
+#
+# Merit::Badge.create!(
+#   id: 3,
+#   name: "first-explore-submit",
+#   description: "Submitted their first Explorer Mode contribution to the Starchives.",
+#   custom_fields: {  }
+# )
+#
+# Merit::Badge.create!(
+#   id: 4,
+#   name: "first-create-submit",
+#   description: "Submitted their first Creator Mode contribution to the Starchives.",
+#   custom_fields: {  }
+# )
+#
+# Merit::Badge.create!(
+#   id: 5,
+#   name: "profile-complete",
+#   description: "Completed their Starchitect profile.",
+#   custom_fields: {  }
+# )
+#
+# Merit::Badge.create!(
+#   id: 6,
+#   name: "first-media-upload",
+#   description: "Submitted their first contribution with a media upload to the Starchives.",
+#   custom_fields: {  }
+# )
