@@ -23,7 +23,9 @@ module Merit
     def initialize
       grant_on 'users#create', badge_id: 1, badge: 'new_cadet', to: :itself
 
-      grant_on 'submissions#create', badge_id: 2, badge: 'first_submit'
+      grant_on 'submissions#create', badge_id: 2, badge: 'first_submit' do |submission|
+          submission.user.submissions.count == 1
+      end
 
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|
