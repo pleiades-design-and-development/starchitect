@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_merit
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
   has_many :activities
 
   has_secure_password
