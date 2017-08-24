@@ -28,7 +28,7 @@ module Merit
         end
 
       grant_on 'submissions#create', badge: 'first-create-submit' do |submission|
-          submission.user.submissions.where(submit_type == create).count == 1
+        submission.user.submissions.where(:submit_type => 'create').count == 1
         end
 
       # If it has 10 comments, grant commenter-10 badge
