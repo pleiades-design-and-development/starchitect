@@ -31,6 +31,11 @@ module Merit
         submission.user.submissions.where(:submit_type => 'create').count == 1
         end
 
+      grant_on 'submissions#create', badge: 'first-explore-submit' do |submission|
+        submission.user.submissions.where(:submit_type => 'explore').count == 1 || !submission.user.badges.id == 4
+        end
+
+
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|
       #   comment.user.comments.count == 10
