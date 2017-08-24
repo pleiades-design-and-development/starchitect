@@ -17,8 +17,8 @@ module Merit
         user.callsign.present?
       end
 
-      score 20, :on => 'submission#create'
-      
+      score 20, :on => 'submissions#create'
+
     end
   end
 end
