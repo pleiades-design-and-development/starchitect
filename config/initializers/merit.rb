@@ -36,7 +36,7 @@ badge_id = 0
 [{
   id: (badge_id = badge_id+1),
   name: "new-cadet",
-  description: "Joined the Starchitects!",
+  description: "Joined the Starchitect Foundation!",
   custom_fields: {  }
 }, {
   id: (badge_id = badge_id+1),
@@ -63,49 +63,167 @@ badge_id = 0
   name: "first-media-upload",
   description: "Submitted their first contribution with a media upload to the Starchives.",
   custom_fields: {  }
-}].each do |attrs|
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "level-gain",
+  description: "Climbed the ranks of the Starchitect Foundation.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-submits",
+  description: "Submitted five total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-submits",
+  description: "Submitted ten total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-submits",
+  description: "Submitted 15 total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-submits",
+  description: "Submitted 20 total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-create-submits",
+  description: "Submitted five Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-create-submits",
+  description: "Submitted ten Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-create-submits",
+  description: "Submitted 15 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-create-submits",
+  description: "Submitted 20 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-submits",
+  description: "Submitted 20 total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-create-submits",
+  description: "Submitted five Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-create-submits",
+  description: "Submitted ten Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-create-submits",
+  description: "Submitted 15 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-create-submits",
+  description: "Submitted 20 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-submits",
+  description: "Submitted 20 total contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-create-submits",
+  description: "Submitted five Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-create-submits",
+  description: "Submitted ten Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-create-submits",
+  description: "Submitted 15 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-create-submits",
+  description: "Submitted 20 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-create-submits",
+  description: "Submitted five Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-create-submits",
+  description: "Submitted ten Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-create-submits",
+  description: "Submitted 15 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-create-submits",
+  description: "Submitted 20 Creator contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-explore-submits",
+  description: "Submitted five Explorer contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-explore-submits",
+  description: "Submitted ten Explorer contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-explore-submits",
+  description: "Submitted 15 Explorer contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-explore-submits",
+  description: "Submitted 20 Explorer contributions to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "first-comment",
+  description: "Submitted their first comment to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "five-comments",
+  description: "Submitted five comments to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "ten-comments",
+  description: "Submitted ten comments to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "fifteen-comments",
+  description: "Submitted 15 comments to the Starchives.",
+  custom_fields: {  }
+  }, {
+  id: (badge_id = badge_id+1),
+  name: "twenty-comments",
+  description: "Submitted 20 comments to the Starchives.",
+  custom_fields: {  }
+
+  }].each do |attrs|
   Merit::Badge.create! attrs
 end
-
-
-# Merit::Badge.create!(
-#   id: 1,
-#   name: "new-cadet",
-#   description: "Joined the Starchitects!",
-#   custom_fields: {  }
-# )
-#
-# Merit::Badge.create!(
-#   id: 2,
-#   name: "first-submit",
-#   description: "Submitted their first contribution the the Starchives.",
-#   custom_fields: {  }
-# )
-#
-# Merit::Badge.create!(
-#   id: 3,
-#   name: "first-explore-submit",
-#   description: "Submitted their first Explorer Mode contribution to the Starchives.",
-#   custom_fields: {  }
-# )
-#
-# Merit::Badge.create!(
-#   id: 4,
-#   name: "first-create-submit",
-#   description: "Submitted their first Creator Mode contribution to the Starchives.",
-#   custom_fields: {  }
-# )
-#
-# Merit::Badge.create!(
-#   id: 5,
-#   name: "profile-complete",
-#   description: "Completed their Starchitect profile.",
-#   custom_fields: {  }
-# )
-#
-# Merit::Badge.create!(
-#   id: 6,
-#   name: "first-media-upload",
-#   description: "Submitted their first contribution with a media upload to the Starchives.",
-#   custom_fields: {  }
-# )

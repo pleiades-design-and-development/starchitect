@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_merit
+  has_many :comments, dependent: :destroy
   has_many :submissions, dependent: :destroy
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   has_secure_password
   has_secure_token :api_token

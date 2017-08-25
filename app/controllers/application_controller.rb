@@ -1,34 +1,10 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  # before_action :cors_preflight_check
-  # after_action :cors_set_access_control_header
-
-    #permit OPTIONS, possibly unnecessary with rack-cors
-  # def cors_set_access_control_headers
-  #   headers['Access-Control-Allow-Origin'] = '*'
-  #   headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
-  #   headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
-  #   headers['Access-Control-Max-Age'] = "1728000"
-  # end
-  #
-  # def cors_preflight_check
-  #   if request.method == 'OPTIONS'
-  #     headers['Access-Control-Allow-Origin'] = '*'
-  #     headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
-  #     headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Token'
-  #     headers['Access-Control-Max-Age'] = '1728000'
-  #
-  #     render :text => '', :content_type => 'text/plain'
-  #
-  #   end
-  # end
-
     #Cereal Eyes
   include ActionController::Serialization
 
     #Authentication
-
   def require_login
     authenticate_token || render_unauthorized("Access denied")
   end
@@ -40,7 +16,6 @@ class ApplicationController < ActionController::API
   def current_user
     @current_user ||= authenticate_token
   end
-
 
   protected
 
@@ -60,10 +35,5 @@ class ApplicationController < ActionController::API
   def track_activity(trackable, action = params[:action])
     current_user.activities.create! action: action, trackable: trackable
   end
-
-  # def act_params
-  #   params.permit(:id, :user_id, :action, :trackable)
-  # end
-
 
 end

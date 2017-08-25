@@ -4,31 +4,13 @@ Rails.application.routes.draw do
 
 scope '/api' do
   scope '/v1' do
-    resources :activities
     post   "/signup" =>  'users#create'
     post   "/login" => 'sessions#create'
     delete "/logout" => 'sessions#destroy'
-    scope '/users' do
-      get '/' => 'users#index'
-      get '/:id' => 'users#show'
-    end
-    scope '/profile' do
-      get '/' => 'profile#index'
-    end
-    scope '/starmap' do
-      get '/' => 'starmap#index'
-    end
-    scope 'submissions' do
-      get '/' => 'submissions#index'
-      get '/:id' => 'submissions#show'
-      post '/' => 'submissions#create'
-      put '/:id/edit' => 'submissions#update'
-    end
-    scope 'posts' do
-      get '/' => 'posts#index'
-      get '/:id' => 'posts#show'
-      post '/' => 'posts#create'
-      put '/:id/edit' => 'posts#update'
+    resources :activities
+    resources :users
+    resources :submissions do
+      resources :comments
     end
   end
 end
