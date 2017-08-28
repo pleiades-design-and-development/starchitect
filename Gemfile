@@ -15,6 +15,7 @@ gem 'pry-rails'
 gem 'faker'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'figaro'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

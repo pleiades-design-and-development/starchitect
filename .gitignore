@@ -20,3 +20,6 @@
 # Ignore local env variables
 /.env
 /config/secrets.yml
+
+# Ignore application configuration
+/config/application.yml
