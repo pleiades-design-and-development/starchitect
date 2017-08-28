@@ -3,13 +3,19 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :submissions, dependent: :destroy
   has_many :activities, dependent: :destroy
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
 
   has_secure_password
   has_secure_token :api_token
 
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :callsign, presence: true, uniqueness: true, format: { with: /[a-zA-Z0-9]/, message: "Callsign must be letters and numbers only."}
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z]+\z/,
-    message: "First name my be letters only." }
+    message: "First name must be letters only." }
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z]+\z/,
     message: "Last name must be letters only." }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Must be a valid email address." }
