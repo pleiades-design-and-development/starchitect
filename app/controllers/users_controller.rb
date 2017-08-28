@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       @current_user = @user
       track_activity @user
       render json: @user, status: :created
-
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -41,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :password_confirmation)
+    params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :password_confirmation, :avatar)
   end
 
   def set_user
