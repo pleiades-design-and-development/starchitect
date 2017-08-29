@@ -13,7 +13,7 @@ end
 context "User Login" do
   describe "/api/v1/login" do
     let(:logged_in_user) { FactoryGirl.create(:logged_in_user) }
-    let(:json_data) {:logged_in_user}
+    let(:json_data) { { logged_in_user: {callsign: logged_in_user.callsign, password: logged_in_user.password, api_token: logged_in_user.api_token}}}
 
     it "returns 201 status code" do
       post "/api/v1/login", params: json_data
