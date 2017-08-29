@@ -1,4 +1,5 @@
 class SubmissionsController < ApplicationController
+  before_action :require_login, only: [ :create, :update, :destroy]
   before_action :set_submission, only: [:show, :update, :destroy]
 
   # GET /submissions

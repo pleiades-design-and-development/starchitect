@@ -12,7 +12,6 @@ gem 'merit', github: "joshuastronomy/merit"
 gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
 gem 'pry-rails'
-gem 'faker'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
@@ -47,6 +46,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'faker'
+
 
 end
 
