@@ -22,7 +22,7 @@ class SubmissionsController < ApplicationController
 
       render json: @submission, status: :created
     else
-      render json: @submission.errors, status: :unprocessable_entity
+      render :json => { :errors => @submission.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -33,13 +33,13 @@ class SubmissionsController < ApplicationController
 
       render json: @submission
     else
-      render json: @submission.errors, status: :unprocessable_entity
+      render :json => { :errors => @submission.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   # DELETE /submissions/1
   def destroy
-    
+
     track_activity @submission
 
     @submission.destroy
