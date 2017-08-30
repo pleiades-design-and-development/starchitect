@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     private
 
     def send_auth_token_for_valid_login_of(user)
-      render json: user, serializer: LoginSerializer
+      render json: user, serializer: LoginSerializer, status: :created
     end
 
     def allow_token_to_be_used_only_once_for(user)

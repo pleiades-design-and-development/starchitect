@@ -12,7 +12,12 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token :api_token
 
+  # validates_attachment :avatar, presence: true,
+  #   content_type: { content_type: "image/jpeg" },
+  #   size: { in: 0..1.megabytes }
+
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
   validates :callsign, presence: true, uniqueness: true, format: { with: /[a-zA-Z0-9]/, message: "Callsign must be letters and numbers only."}
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z]+\z/,
     message: "First name must be letters only." }

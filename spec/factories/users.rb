@@ -6,5 +6,6 @@ FactoryGirl.define do
     firstname             Faker::Ancient.god
     lastname              Faker::Ancient.primordial
     email                 Faker::Internet.email
+    api_token             ""
   end
 end

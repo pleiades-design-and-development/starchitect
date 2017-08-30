@@ -6,29 +6,47 @@ describe "Users" do
   context "/api/v1/signup" do
     it "returns 201 status code" do
       post "/api/v1/signup", params: json_data
+      user_json = JSON.parse(response.body)
+      user.api_token = user_json['data']['attributes']['api-token']
       expect(response).to have_http_status(201)
     end
   end
 
   context "/api/v1/login" do
+    before(:each) do
+      @user = FactoryGirl.build_stubbed(:user)
+      @json_data = { firstname: user.firstname, lastname: @user.lastname, callsign: @user.callsign, email: @user.email, password: @user.password, password_confirmation: @user.password_confirmation}
+      post "/api/v1/signup", params: @json_data
+      @user_json = JSON.parse(response.body)
+      @user.api_token = @user_json['data']['attributes']['api-token']
+    end
     # let!(:user) { FactoryGirl.build_stubbed(:user) }
     # let!(:json_data) { { user: {callsign: user.callsign, password: user.password}}}
     # logged_in_user = FactoryGirl.build_stubbed(:logged_in_user)
     # json_data = logged_in_user.to_json
     it "returns 201 status code" do
-      post "/api/v1/login", params: json_data
+      post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
+      expect(response).to have_http_status(201)
+
     end
 
     it "returns a valid api token" do
-      post "/api/v1/login", params: json_data
-      json_response = JSON.parse(response.body)
-      auth_token = json_response["api_token"]
-      expect(auth_token).to_not be_nil
+      post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
+      expect(@user.api_token).to_not be_nil
+      # request.headers['Authorization'] = "Token token=" + @user.api_token
+      # request.headers['X-User-callsign'] = @user.callsign
 
-      headers = { format: :json,
-                  "X-User-Token" => auth_token,
-                  "X-User-callsign" => user.callsign}
-      get "/api/v1/users", nil, headers
+      # headers = { "Authorization" => "Token token=" + @user.api_token,
+      #             "X-User-callsign" => @user.callsign}
+      # request.headers.merge! headers
+
+      get "/api/v1/users", headers: {'Authorization' => "Token token=" + @user.api_token, 'X-User-callsign' => @user.callsign}
+binding.pry
+      # headers = { format: :json,
+      #             "Authorization" => "Token token=" + @user.api_token,
+      #             "X-User-callsign" => @user.callsign}
+      # get "/api/v1/users", params: headers
+
       expect(response).to have_http_status(200)
     end
 
@@ -43,8 +61,8 @@ describe "Users" do
       it "errors with a 401" do
         headers = { format: :json,
                     "X-User-Token" => 'adswflkjadsf',
-                    "X-User-callsign" => user.callsign}
-        get "/api/v1/users", nil, headers
+                    "X-User-callsign" => @user.callsign}
+        get "/api/v1/users", params: headers
         expect(response.code.to_i).to eql 401
       end
     end
