@@ -1,23 +1,22 @@
-describe "User Signup" do
-  context "/api/v1/signup" do
-    let(:user) { FactoryGirl.build(:user) }
-    let(:json_data) { {user: { firstname: user.firstname, lastname: user.lastname, callsign: user.callsign, email: user.email, password: user.password, password_confirmation: user.password_confirmation}} }
+describe "Users" do
 
+  let!(:user) { FactoryGirl.build_stubbed(:user) }
+  let!(:json_data) { { firstname: user.firstname, lastname: user.lastname, callsign: user.callsign, email: user.email, password: user.password, password_confirmation: user.password_confirmation} }
+
+  context "/api/v1/signup" do
     it "returns 201 status code" do
       post "/api/v1/signup", params: json_data
-      expect(response.code.to_i).to eql 201
+      expect(response).to have_http_status(201)
     end
   end
-end
 
-context "User Login" do
-  describe "/api/v1/login" do
-    let(:logged_in_user) { FactoryGirl.create(:logged_in_user) }
-    let(:json_data) { { logged_in_user: {callsign: logged_in_user.callsign, password: logged_in_user.password, api_token: logged_in_user.api_token}}}
-
+  context "/api/v1/login" do
+    # let!(:user) { FactoryGirl.build_stubbed(:user) }
+    # let!(:json_data) { { user: {callsign: user.callsign, password: user.password}}}
+    # logged_in_user = FactoryGirl.build_stubbed(:logged_in_user)
+    # json_data = logged_in_user.to_json
     it "returns 201 status code" do
       post "/api/v1/login", params: json_data
-      expect(response.code.to_i).to eql 201
     end
 
     it "returns a valid api token" do
@@ -28,9 +27,9 @@ context "User Login" do
 
       headers = { format: :json,
                   "X-User-Token" => auth_token,
-                  "X-User-callsign" => logged_in_user.callsign}
+                  "X-User-callsign" => user.callsign}
       get "/api/v1/users", nil, headers
-      expect(response.code.to_i).to eql 200
+      expect(response).to have_http_status(200)
     end
 
     context "when performing actions without an api token" do
@@ -44,7 +43,7 @@ context "User Login" do
       it "errors with a 401" do
         headers = { format: :json,
                     "X-User-Token" => 'adswflkjadsf',
-                    "X-User-callsign" => logged_in_user.callsign}
+                    "X-User-callsign" => user.callsign}
         get "/api/v1/users", nil, headers
         expect(response.code.to_i).to eql 401
       end

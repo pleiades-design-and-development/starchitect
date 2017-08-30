@@ -8,13 +8,14 @@ end
 gem 'haml'
 gem 'annotate'
 gem 'wicked'
-gem 'merit', github: "joshuastronomy/merit"
 gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
 gem 'pry-rails'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
+gem 'merit', github: "joshuastronomy/merit"
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,12 +42,12 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'merit', github: "joshuastronomy/merit"
 
 
 end
