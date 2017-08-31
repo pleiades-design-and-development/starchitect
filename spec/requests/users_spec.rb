@@ -26,6 +26,7 @@ describe "Users" do
     # json_data = logged_in_user.to_json
     it "returns 201 status code" do
       post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
+      binding.pry
       expect(response).to have_http_status(201)
 
     end
@@ -33,19 +34,9 @@ describe "Users" do
     it "returns a valid api token" do
       post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
       expect(@user.api_token).to_not be_nil
-      # request.headers['Authorization'] = "Token token=" + @user.api_token
-      # request.headers['X-User-callsign'] = @user.callsign
 
-      # headers = { "Authorization" => "Token token=" + @user.api_token,
-      #             "X-User-callsign" => @user.callsign}
-      # request.headers.merge! headers
-
-      get "/api/v1/users", headers: {'Authorization' => "Token token=" + @user.api_token, 'X-User-callsign' => @user.callsign}
-binding.pry
-      # headers = { format: :json,
-      #             "Authorization" => "Token token=" + @user.api_token,
-      #             "X-User-callsign" => @user.callsign}
-      # get "/api/v1/users", params: headers
+      headers = { :Authorization => "Token token=" + @user.api_token, :callsign => @user.callsign }
+      get "/api/v1/users", headers: headers
 
       expect(response).to have_http_status(200)
     end
@@ -53,7 +44,7 @@ binding.pry
     context "when performing actions without an api token" do
       it "errors with a 401" do
         get "/api/v1/users"
-        expect(response.code.to_i).to eql 401
+        expect(response).to have_http_status(401)
       end
     end
 
@@ -63,7 +54,7 @@ binding.pry
                     "X-User-Token" => 'adswflkjadsf',
                     "X-User-callsign" => @user.callsign}
         get "/api/v1/users", params: headers
-        expect(response.code.to_i).to eql 401
+        expect(response).to have_http_status(401)
       end
     end
   end
