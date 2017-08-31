@@ -8,6 +8,8 @@ render json: @comments
 end
 
 def create
+  track_activity @comment
+
 end
 
 def destroy

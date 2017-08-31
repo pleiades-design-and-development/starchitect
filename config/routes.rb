@@ -8,6 +8,7 @@ scope '/api' do
     post   "/login" => 'sessions#create'
     delete "/logout" => 'sessions#destroy'
     resources :activities
+    resources :merit_activity_logs
     resources :users
     resources :submissions do
       resources :comments
