@@ -1,8 +1,14 @@
 class ActivitiesController < ApplicationController
 
+  # before_action :require_login
+
   def index
-    @activities = Activity.order('created_at DESC')
-    render json: @activities
+    @activities = Activity.all
+    @merit_index = Merit::BadgesSash.all
+    @all_activities = @activities + @merit_index
+    @all_activities.sort_by! {|entry| entry.created_at}.reverse!
+
+    render json: @all_activities
   end
 
   def create

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :require_login, only: [ :create, :update, :destroy]
+  before_action :require_login
   before_action :set_comment, only: [:show, :destroy]
 
 def index
@@ -8,6 +8,8 @@ render json: @comments
 end
 
 def create
+  track_activity @comment
+
 end
 
 def destroy
