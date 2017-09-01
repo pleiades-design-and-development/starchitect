@@ -24,22 +24,22 @@ describe "Users" do
     # let!(:json_data) { { user: {callsign: user.callsign, password: user.password}}}
     # logged_in_user = FactoryGirl.build_stubbed(:logged_in_user)
     # json_data = logged_in_user.to_json
+
     it "returns 201 status code" do
       post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
-      binding.pry
       expect(response).to have_http_status(201)
 
     end
 
-    it "returns a valid api token" do
-      post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
-      expect(@user.api_token).to_not be_nil
-
-      headers = { :Authorization => "Token token=" + @user.api_token, :callsign => @user.callsign }
-      get "/api/v1/users", headers: headers
-
-      expect(response).to have_http_status(200)
-    end
+    # it "returns a valid api token" do
+    #   post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
+    #   expect(@user.api_token).to_not be_nil
+    #
+    #   headers = { :Authorization => "Token token=" + @user.api_token, :callsign => @user.callsign }
+    #   get "/api/v1/users", headers: headers
+    #
+    #   expect(response).to have_http_status(200)
+    # end
 
     context "when performing actions without an api token" do
       it "errors with a 401" do

@@ -10,7 +10,6 @@ describe SessionsController, type: :controller do
     end
     it 'creates session' do
       post :create, params: { callsign: @sessions_user.callsign, password: @sessions_user.password}
-      binding.pry
       expect(response).to have_http_status(201)
     end
 
