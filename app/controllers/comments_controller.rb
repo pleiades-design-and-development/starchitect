@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :require_login, only: [ :create, :update, :destroy]
+  before_action :require_login
   before_action :set_comment, only: [:show, :destroy]
 
 def index
