@@ -18,6 +18,9 @@ module Merit
       end
 
       score 20, :on => 'submissions#create'
+      score (-20), :on => 'submissions#destroy'
+      score 20, :on => "comments#create"
+      score (-20), :on => "comments#destroy"
 
     end
   end
