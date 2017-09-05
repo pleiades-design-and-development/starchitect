@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
-  title: MyString
-  body: MyText
-  user: one
+  submit_type: create
+  title: A story
+  body: Here's a story
+  user_id: 1
+  submit_object: Jupiter
 
 two:
-  type: 
-  title: MyString
-  body: MyText
-  user: two
+  submit_type: explore
+  title: Some numbers
+  body: Here's some numbers
+  user_id: 2
+  submit_object: Jupiter

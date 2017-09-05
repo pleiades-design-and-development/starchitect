@@ -9,7 +9,8 @@ describe SessionsController, type: :controller do
       @sessions_data = { callsign: @sessions_user.callsign, password: @sessions_user.password}
     end
     it 'creates session' do
-      post :create, params: { callsign: @sessions_user.callsign, password: @sessions_user.password}
+      post :create, params: @sessions_data
+      binding.pry
       expect(response).to have_http_status(201)
     end
 

@@ -1,18 +1,28 @@
 require 'test_helper'
 
 class SubmissionsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
+
+    @current_user = users(:valid_user)
+
+    login_and_set_current_user(@current_user)
+
+    # @request.headers['Authorization'] = ActionController::HttpAuthentication::Basic.
+    #   encode_credentials(@current_user.callsign, 'secret')
+
     @submission = submissions(:one)
   end
 
   test "should get index" do
-    get submissions_url, as: :json
+    get "/api/v1/submissions", as: :json
     assert_response :success
   end
 
   test "should create submission" do
+
     assert_difference('Submission.count') do
-      post submissions_url, params: { submission: { body: @submission.body, title: @submission.title, type: @submission.type, user_id: @submission.user_id } }, as: :json
+      post "/api/v1/submissions", params: { body: @submission.body, title: @submission.title, submit_type: @submission.submit_type, user_id: @current_user.id, submit_object: @submission.submit_object }, as: :json
     end
 
     assert_response 201
@@ -24,7 +34,7 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update submission" do
-    patch submission_url(@submission), params: { submission: { body: @submission.body, title: @submission.title, type: @submission.type, user_id: @submission.user_id } }, as: :json
+    patch submission_url(@submission), params: { submission: { body: @submission.body, title: @submission.title, submit_type: @submission.submit_type, user_id: @current_user.id } }, as: :json
     assert_response 200
   end
 
@@ -35,4 +45,12 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response 204
   end
+
+  private
+
+  def login_and_set_current_user(user)
+    Session.new(user)
+    ApplicationController.current_user = user
+  end
+
 end

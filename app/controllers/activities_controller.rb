@@ -4,11 +4,11 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
-    @merit_index = Merit::BadgesSash.all
-    @all_activities = @activities + @merit_index
-    @all_activities.sort_by! {|entry| entry.created_at}.reverse!
+    # @merit_index = Merit::BadgesSash.all
+    # @all_activities = @activities + @merit_index
+    # @all_activities.sort_by! {|entry| entry.created_at}.reverse!
 
-    render json: @all_activities
+    render json: @activities
   end
 
   def create

@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   firstname: MyString
   lastname: MyString
   callsign: MyString
@@ -8,8 +9,28 @@ one:
   admin: false
 
 two:
+  id: 2
   firstname: MyString
   lastname: MyString
   callsign: MyString
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  admin: false
+
+valid_user:
+  id: 3
+  firstname: Valid
+  lastname: User
+  callsign: ValidUser
+  email: valid@user.com
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  api_token: C2m5oDjxqziCVaovN6wC7qsk
+  admin: false
+
+invalid_user:
+  id: 4
+  firstname: Valid1
+  lastname: User2
+  callsign:
+  email: herpderp
   password_digest: <%= BCrypt::Password.create('secret') %>
   admin: false
