@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = @current_user
+
     if @user.update(user_params)
       render json: @user
     else
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :password_confirmation, :avatar)
+    params.permit(:firstname, :lastname, :email, :callsign, :rank, :level, :password, :beacons, :password_confirmation, :avatar)
   end
 
   def set_user
