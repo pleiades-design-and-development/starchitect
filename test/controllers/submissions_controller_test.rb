@@ -6,7 +6,6 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
 
     @current_user = users(:valid_user)
 
-    login_and_set_current_user(@current_user)
 
     # @request.headers['Authorization'] = ActionController::HttpAuthentication::Basic.
     #   encode_credentials(@current_user.callsign, 'secret')
@@ -48,9 +47,5 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
 
   private
 
-  def login_and_set_current_user(user)
-    Session.new(user)
-    ApplicationController.current_user = user
-  end
 
 end

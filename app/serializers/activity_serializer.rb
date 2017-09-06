@@ -3,7 +3,7 @@ class ActivitySerializer < ActiveModel::Serializer
   # has_one :user
 
   def callsign
-      User.find_by(id: object.user_id).callsign
+      object.user.callsign
   end
 
   def sash_callsign

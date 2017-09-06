@@ -2,18 +2,20 @@
 
 one:
   id: 1
-  firstname: MyString
-  lastname: MyString
-  callsign: MyString
+  firstname: John
+  lastname: Doe
+  callsign: Maverick
   password_digest: <%= BCrypt::Password.create('secret') %>
+  api_token: C2m5oDjxqziCVaovN6wC7qsq
   admin: false
 
 two:
   id: 2
-  firstname: MyString
-  lastname: MyString
-  callsign: MyString
+  firstname: Jane
+  lastname: Doe
+  callsign: Goose
   password_digest: <%= BCrypt::Password.create('secret') %>
+  api_token: C2m5oDjxqziCVaovN6wC7qsw
   admin: false
 
 valid_user:
@@ -23,7 +25,7 @@ valid_user:
   callsign: ValidUser
   email: valid@user.com
   password_digest: <%= BCrypt::Password.create('secret') %>
-  api_token: C2m5oDjxqziCVaovN6wC7qsk
+  api_token: C2m5oDjxqziCVaovN6wC7qse
   admin: false
 
 invalid_user:
@@ -33,4 +35,5 @@ invalid_user:
   callsign:
   email: herpderp
   password_digest: <%= BCrypt::Password.create('secret') %>
+  api_token: C2m5oDjxqziCVaovN6wC7qsr
   admin: false
