@@ -37,3 +37,13 @@ invalid_user:
   password_digest: <%= BCrypt::Password.create('secret') %>
   api_token: C2m5oDjxqziCVaovN6wC7qsr
   admin: false
+
+admin:
+  id: 5
+  firstname: Joshua
+  lastname: Flack
+  callsign: joshuastronomy
+  email: "joshuastronomy@gmail.com"
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  api_token: C2m5oDjxqziCVaovN6wC7qst
+  admin: true
