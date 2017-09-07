@@ -8,7 +8,7 @@ render json: @comments
 end
 
 def create
-  @comment = Comment.new(comment_params)
+  @comment = Comment.new(comm_params)
 
   if @comment.save
     track_activity @comment
