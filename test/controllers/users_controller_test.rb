@@ -19,7 +19,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "get individual user" do
 
     get "/api/v1/users/1"
-    binding.pry
     assert_equal 200, response.status
   end
 
