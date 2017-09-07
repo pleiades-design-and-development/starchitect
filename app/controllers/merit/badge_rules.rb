@@ -85,19 +85,19 @@ module Merit
         submission.user.submissions.where(:submit_type => 'explore').count === 20
         end
 
-      grant_on 'comments#create', badge: 'first-comment' do |submission|
+      grant_on 'comments#create', badge: 'first-comment' do |comment|
         comment.user.comments.count === 20
         end
 
-      grant_on 'comments#create', badge: 'five-comments' do |submission|
+      grant_on 'comments#create', badge: 'five-comments' do |comment|
       comment.user.comments.count === 20
       end
 
-      grant_on 'comments#create', badge: 'fifteen-comments' do |submission|
+      grant_on 'comments#create', badge: 'fifteen-comments' do |comment|
       comment.user.comments.count === 20
       end
 
-      grant_on 'comments#create', badge: 'twenty-comments' do |submission|
+      grant_on 'comments#create', badge: 'twenty-comments' do |comment|
       comment.user.comments.count === 20
       end
 
