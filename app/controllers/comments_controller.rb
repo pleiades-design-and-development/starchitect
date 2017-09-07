@@ -36,7 +36,7 @@ def set_comment
 end
 
 def comm_params
-  params.permit(:body, :user_id, :submission_id)
+  params.permit(:body, :user_id, :commentable_id)
 end
 
 end
