@@ -5,7 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:admin)
     @user.save!
-    post "/api/v1/login", params: {callsign: @user.callsign, password: 'secret', api_token: @user.api_token}
+    post "/api/v1/login", params: {callsign: @user.callsign, password: 'secret'}
   end
 
   test "get users index" do

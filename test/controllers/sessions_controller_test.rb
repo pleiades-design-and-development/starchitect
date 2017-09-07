@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = { user: {callsign: 'joshuastronomy', password: 'secret'} }
+    @user = { user: {callsign: 'joshuastronomy', password: 'secret', api} }
   end
 
   test "login" do

@@ -27,7 +27,6 @@ module Merit
 
       grant_on 'submissions#create', badge_id: 2, badge: 'first_submit' do |submission|
           submission.user.submissions.count === 1
-          track_activity submission
         end
 
       grant_on 'submissions#create', badge: 'first-create-submit' do |submission|
