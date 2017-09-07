@@ -1,22 +1,31 @@
-describe "Users" do
-
+describe 'Users' do
   let!(:user) { FactoryGirl.build_stubbed(:user) }
-  let!(:json_data) { { firstname: user.firstname, lastname: user.lastname, callsign: user.callsign, email: user.email, password: user.password, password_confirmation: user.password_confirmation} }
+  let!(:json_data) { { firstname: user.firstname,
+                       lastname: user.lastname,
+                       callsign: user.callsign,
+                       email: user.email,
+                       password: user.password,
+                       password_confirmation: user.password_confirmation } }
 
-  context "/api/v1/signup" do
-    it "returns 201 status code" do
-      post "/api/v1/signup", params: json_data
+  context '/api/v1/signup' do
+    it 'returns 201 status code' do
+      post '/api/v1/signup', params: json_data
       user_json = JSON.parse(response.body)
       user.api_token = user_json['data']['attributes']['api-token']
       expect(response).to have_http_status(201)
     end
   end
 
-  context "/api/v1/login" do
+  context '/api/v1/login' do
     before(:each) do
       @user = FactoryGirl.build_stubbed(:user)
-      @json_data = { firstname: user.firstname, lastname: @user.lastname, callsign: @user.callsign, email: @user.email, password: @user.password, password_confirmation: @user.password_confirmation}
-      post "/api/v1/signup", params: @json_data
+      @json_data = { firstname: user.firstname,
+                     lastname: @user.lastname,
+                     callsign: @user.callsign,
+                     email: @user.email,
+                     password: @user.password,
+                     password_confirmation: @user.password_confirmation }
+      post '/api/v1/signup', params: @json_data
       @user_json = JSON.parse(response.body)
       @user.api_token = @user_json['data']['attributes']['api-token']
     end
@@ -25,35 +34,37 @@ describe "Users" do
     # logged_in_user = FactoryGirl.build_stubbed(:logged_in_user)
     # json_data = logged_in_user.to_json
 
-    it "returns 201 status code" do
-      post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
+    it 'returns 201 status code' do
+      post '/api/v1/login', params: { callsign: @user.callsign,
+                                      password: @user.password }
       expect(response).to have_http_status(201)
-
     end
 
-    # it "returns a valid api token" do
-    #   post "/api/v1/login", params: {callsign: @user.callsign, password: @user.password}
-    #   expect(@user.api_token).to_not be_nil
-    #
-    #   headers = { :Authorization => "Token token=" + @user.api_token, :callsign => @user.callsign }
-    #   get "/api/v1/users", headers: headers
-    #
-    #   expect(response).to have_http_status(200)
-    # end
+    it 'returns a valid api token' do
+      post '/api/v1/login', params: { callsign: @user.callsign,
+                                      password: @user.password }
+      expect(@user.api_token).to_not be_nil
 
-    context "when performing actions without an api token" do
-      it "errors with a 401" do
-        get "/api/v1/users"
+      headers = { Authorization: 'Token token=' + @user.api_token,
+                  callsign: @user.callsign }
+      get '/api/v1/users', headers: headers
+
+      expect(response).to have_http_status(200)
+    end
+
+    context 'when performing actions without an api token' do
+      it 'errors with a 401' do
+        get '/api/v1/users'
         expect(response).to have_http_status(401)
       end
     end
 
-    context "when performing actions with an invalid api token" do
-      it "errors with a 401" do
+    context 'when performing actions with an invalid api token' do
+      it 'errors with a 401' do
         headers = { format: :json,
-                    "X-User-Token" => 'adswflkjadsf',
-                    "X-User-callsign" => @user.callsign}
-        get "/api/v1/users", params: headers
+                    'X-User-Token' => 'adswflkjadsf',
+                    'X-User-callsign' => @user.callsign }
+        get '/api/v1/users', params: headers
         expect(response).to have_http_status(401)
       end
     end

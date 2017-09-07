@@ -23,94 +23,86 @@ module Merit
     def initialize
       grant_on 'users#create', badge_id: 1, badge: 'new_cadet', to: :itself
 
-
       grant_on 'submissions#create', badge_id: 2, badge: 'first_submit' do |submission|
-          submission.user.submissions.count === 1
-          track_activity submission
-        end
+        submission.user.submissions.count === 1
+        track_activity submission
+      end
 
       grant_on 'submissions#create', badge: 'first-create-submit' do |submission|
-        submission.user.submissions.where(:submit_type => 'create').count === 1
-        end
+        submission.user.submissions.where(submit_type: 'create').count === 1
+      end
 
       grant_on 'submissions#create', badge: 'first-explore-submit' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count === 1
-        end
+        submission.user.submissions.where(submit_type: 'explore').count === 1
+      end
 
       grant_on 'submissions#create', badge: 'five-submits' do |submission|
         submission.user.submissions.count === 5
-        end
+      end
 
       grant_on 'submissions#create', badge: 'five-explore-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count === 5
-        end
+        submission.user.submissions.where(submit_type: 'explore').count === 5
+      end
 
       grant_on 'submissions#create', badge: 'five-create-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'create').count === 5
-        end
+        submission.user.submissions.where(submit_type: 'create').count === 5
+      end
 
       grant_on 'submissions#create', badge: 'ten-submits' do |submission|
         submission.user.submissions.count === 10
-        end
+      end
 
       grant_on 'submissions#create', badge: 'ten-create-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'create').count === 10
-        end
+        submission.user.submissions.where(submit_type: 'create').count === 10
+      end
 
       grant_on 'submissions#create', badge: 'ten-explore-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count === 10
-        end
+        submission.user.submissions.where(submit_type: 'explore').count === 10
+      end
 
       grant_on 'submissions#create', badge: 'fifteen-submits' do |submission|
         submission.user.submissions.count === 15
-        end
+      end
 
       grant_on 'submissions#create', badge: 'fifteen-create-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'create').count === 15
-        end
+        submission.user.submissions.where(submit_type: 'create').count === 15
+      end
 
       grant_on 'submissions#create', badge: 'fifteen-explore-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count === 15
-        end
+        submission.user.submissions.where(submit_type: 'explore').count === 15
+      end
 
       grant_on 'submissions#create', badge: 'twenty-submits' do |submission|
         submission.user.submissions.count === 20
-        end
+      end
 
       grant_on 'submissions#create', badge: 'twenty-create-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'create').count === 20
-        end
+        submission.user.submissions.where(submit_type: 'create').count === 20
+      end
 
       grant_on 'submissions#create', badge: 'twenty-explore-submits' do |submission|
-        submission.user.submissions.where(:submit_type => 'explore').count === 20
-        end
+        submission.user.submissions.where(submit_type: 'explore').count === 20
+      end
 
       grant_on 'comments#create', badge: 'first-comment' do |comment|
         comment.user.comments.count === 1
-        end
+      end
 
       grant_on 'comments#create', badge: 'five-comments' do |comment|
         comment.user.comments.count === 5
-        end
+      end
 
       grant_on 'comments#create', badge: 'ten-comments' do |comment|
         comment.user.comments.count === 10
-        end
+      end
 
       grant_on 'comments#create', badge: 'fifteen-comments' do |comment|
         comment.user.comments.count === 15
-        end
+      end
 
       grant_on 'comments#create', badge: 'twenty-comments' do |comment|
         comment.user.comments.count === 20
-        end
-
-
-
-
-
-
-
+      end
 
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.

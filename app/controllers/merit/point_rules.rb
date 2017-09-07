@@ -13,15 +13,14 @@ module Merit
     include Merit::PointRulesMethods
 
     def initialize
-      score 100, :on => 'users#create' do |user|
+      score 100, on: 'users#create' do |user|
         user.callsign.present?
       end
 
-      score 20, :on => 'submissions#create'
-      score (-20), :on => 'submissions#destroy'
-      score 20, :on => "comments#create"
-      score (-20), :on => "comments#destroy"
-
+      score 20, on: 'submissions#create'
+      score -20, on: 'submissions#destroy'
+      score 20, on: 'comments#create'
+      score -20, on: 'comments#destroy'
     end
   end
 end

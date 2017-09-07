@@ -5,5 +5,4 @@ class SubmissionSerializer < ActiveModel::Serializer
   def callsign
     object.user.callsign
   end
-
 end

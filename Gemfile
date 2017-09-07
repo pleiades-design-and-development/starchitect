@@ -1,20 +1,21 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'haml'
-gem 'annotate'
-gem 'wicked'
-gem 'redcarpet'
 gem 'active_model_serializers', '0.10.0'
-gem 'pry-rails'
-gem 'paperclip'
+gem 'annotate'
 gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
-gem 'merit', github: "joshuastronomy/merit"
+gem 'haml'
+gem 'merit', github: 'joshuastronomy/merit'
+gem 'paperclip'
+gem 'pry-rails'
+gem 'redcarpet'
+gem 'wicked'
+gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -35,17 +36,16 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_girl_rails', :require => false
-  gem 'shoulda-matchers'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
-  gem 'rspec-rails'
+  gem 'factory_girl_rails', require: false
   gem 'faker'
-
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -56,4 +56,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

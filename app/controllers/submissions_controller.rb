@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   # before_action :require_login
-  before_action :set_submission, only: [:show, :update, :destroy]
+  before_action :set_submission, only: %i[show update destroy]
 
   # GET /submissions
   def index
@@ -23,7 +23,7 @@ class SubmissionsController < ApplicationController
 
       render json: @submission, status: :created
     else
-      render :json => { :errors => @submission.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @submission.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -34,26 +34,26 @@ class SubmissionsController < ApplicationController
 
       render json: @submission
     else
-      render :json => { :errors => @submission.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @submission.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   # DELETE /submissions/1
   def destroy
-
     track_activity @submission
 
     @submission.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_submission
-      @submission = Submission.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def submission_params
-      params.permit(:submit_type, :submit_object, :title, :body, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_submission
+    @submission = Submission.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def submission_params
+    params.permit(:submit_type, :submit_object, :title, :body, :user_id)
+  end
 end

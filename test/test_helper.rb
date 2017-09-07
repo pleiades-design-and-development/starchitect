@@ -23,5 +23,4 @@ class ActiveSupport::TestCase
   # class ActionDispatch::IntegrationTest
   #   include SignInHelper
   # end
-
 end
