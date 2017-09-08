@@ -7,9 +7,8 @@ class ActivitiesController < ApplicationController
     @all_activities = @activities + @merit_index
     @all_activities.sort_by!(&:created_at).reverse!
 
-    @unified_activities = AllActivities
 
-    render json: @unified_activities
+    render json: @all_activities
   end
 
   def create

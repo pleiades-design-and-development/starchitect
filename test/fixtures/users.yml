@@ -5,6 +5,7 @@ one:
   firstname: John
   lastname: Doe
   callsign: Maverick
+  email: user@one.com
   password_digest: <%= BCrypt::Password.create('secret') %>
   api_token: C2m5oDjxqziCVaovN6wC7qsq
   admin: false
@@ -14,6 +15,7 @@ two:
   firstname: Jane
   lastname: Doe
   callsign: Goose
+  email: user@two.com
   password_digest: <%= BCrypt::Password.create('secret') %>
   api_token: C2m5oDjxqziCVaovN6wC7qsw
   admin: false
@@ -43,7 +45,7 @@ admin:
   firstname: Joshua
   lastname: Flack
   callsign: joshuastronomy
-  email: "joshuastronomy@gmail.com"
+  email: joshuastronomy@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
   api_token: C2m5oDjxqziCVaovN6wC7qst
   admin: true

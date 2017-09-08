@@ -48,7 +48,7 @@ describe 'Users' do
       headers = { Authorization: 'Token token=' + @user.api_token,
                   callsign: @user.callsign }
       get '/api/v1/users', headers: headers
-
+        binding.pry
       expect(response).to have_http_status(200)
     end
 

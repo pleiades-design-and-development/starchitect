@@ -23,7 +23,9 @@ class User < ApplicationRecord
                                                   message: 'First name must be letters only.' }
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z]+\z/,
                                                  message: 'Last name must be letters only.' }
-  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Must be a valid email address.' }
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Must be a valid email address.' }
 
   def invalidate_token
     update_columns(api_token: nil)
